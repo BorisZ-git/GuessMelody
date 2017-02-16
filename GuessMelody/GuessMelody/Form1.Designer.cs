@@ -1,6 +1,6 @@
 ﻿namespace GuessMelody
 {
-    partial class Form1
+    partial class FmMain
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,12 +28,48 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FmMain));
+            this.btnPlay = new System.Windows.Forms.Button();
+            this.btnSettings = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // btnPlay
+            // 
+            resources.ApplyResources(this.btnPlay, "btnPlay");
+            this.btnPlay.Name = "btnPlay";
+            this.btnPlay.UseVisualStyleBackColor = true;
+            // 
+            // btnSettings
+            // 
+            resources.ApplyResources(this.btnSettings, "btnSettings");
+            this.btnSettings.Name = "btnSettings";
+            this.btnSettings.UseVisualStyleBackColor = true;
+            // 
+            // btnExit
+            // 
+            resources.ApplyResources(this.btnExit, "btnExit");
+            this.btnExit.Name = "btnExit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // FmMain
+            // 
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.btnSettings);
+            this.Controls.Add(this.btnPlay);
+            this.Name = "FmMain";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnPlay;
+        private System.Windows.Forms.Button btnSettings;
+        private System.Windows.Forms.Button btnExit;
     }
 }
 
