@@ -16,5 +16,14 @@ namespace GuessMelody
         {
             InitializeComponent();
         }
+        Random random = new Random();
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            WMP.URL = Victorina.list[rnd()];
+        }
+        private int rnd()
+        {
+            return random.Next(0, Victorina.list.Count);
+        }
     }
 }
