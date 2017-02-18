@@ -20,6 +20,7 @@ namespace GuessMelody
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Victorina.WriteSettings();
             this.Hide();
         }
 
