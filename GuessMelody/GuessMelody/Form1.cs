@@ -39,6 +39,7 @@ namespace GuessMelody
         private void FmMain_Load(object sender, EventArgs e)
         {
             Victorina.ReadSettings();
+            Victorina.ReadMusic();
         }
     }
 }

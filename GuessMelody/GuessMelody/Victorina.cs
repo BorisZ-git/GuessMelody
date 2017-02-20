@@ -19,10 +19,17 @@ namespace GuessMelody
 
         static public void ReadMusic()
         {
-            string[] Music_Files = Directory.GetFiles(LastFolder, "*mp3", 
-                AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
-            list.Clear();
-            list.AddRange(Music_Files);
+            try
+            {
+                string[] Music_Files = Directory.GetFiles(LastFolder, "*mp3",
+                    AllDirectories ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);                
+                list.Clear();
+                list.AddRange(Music_Files);
+            }
+            catch
+            {
+
+            }
         }
         static public string RegKeyWay = "Software\\NightmareInc\\GuessMelody";
 

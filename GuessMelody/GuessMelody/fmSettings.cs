@@ -41,6 +41,7 @@ namespace GuessMelody
             {
                 string[] Music_List = Directory.GetFileSystemEntries(fbdMusic_List.SelectedPath,"*mp3",
                 cbAllDirectory.Checked ? SearchOption.AllDirectories : SearchOption.TopDirectoryOnly);
+                Victorina.LastFolder = fbdMusic_List.SelectedPath;
                 lbMusic.Items.Clear();
                 lbMusic.Items.AddRange(Music_List);
                 Victorina.list.Clear();
@@ -58,6 +59,8 @@ namespace GuessMelody
         private void fmSettings_Load(object sender, EventArgs e)
         {            
             Set();
+            lbMusic.Items.Clear();
+            lbMusic.Items.AddRange(Victorina.list.ToArray());
         }
     }
 }
