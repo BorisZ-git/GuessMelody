@@ -63,6 +63,7 @@
             this.Controls.Add(this.btnSettings);
             this.Controls.Add(this.btnPlay);
             this.Name = "FmMain";
+            this.Load += new System.EventHandler(this.FmMain_Load);
             this.ResumeLayout(false);
 
         }

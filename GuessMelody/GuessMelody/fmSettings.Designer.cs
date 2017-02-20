@@ -188,6 +188,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fmSettings";
             this.Text = "Settings";
+            this.Load += new System.EventHandler(this.fmSettings_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

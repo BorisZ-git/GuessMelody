@@ -30,10 +30,7 @@ namespace GuessMelody
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            cmbGameDuration.Text = Victorina.GameDuration.ToString();
-            cmbMusicDuration.Text = Victorina.MusicDuration.ToString();
-            cbAllDirectory.Checked = Victorina.AllDirectories;
-            cbRandomStart.Checked = Victorina.RandomStart;
+            Set();
             this.Hide();
         }
 
@@ -49,6 +46,18 @@ namespace GuessMelody
                 Victorina.list.Clear();
                 Victorina.list.AddRange(Music_List);
             }
+        }
+        void Set()
+        {
+            cmbGameDuration.Text = Victorina.GameDuration.ToString();
+            cmbMusicDuration.Text = Victorina.MusicDuration.ToString();
+            cbAllDirectory.Checked = Victorina.AllDirectories;
+            cbRandomStart.Checked = Victorina.RandomStart;
+        }
+
+        private void fmSettings_Load(object sender, EventArgs e)
+        {            
+            Set();
         }
     }
 }

@@ -35,5 +35,10 @@ namespace GuessMelody
             this.Hide();
             fmGame.Show();
         }
+
+        private void FmMain_Load(object sender, EventArgs e)
+        {
+            Victorina.ReadSettings();
+        }
     }
 }
