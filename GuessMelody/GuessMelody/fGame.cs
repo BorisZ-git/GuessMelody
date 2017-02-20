@@ -28,5 +28,10 @@ namespace GuessMelody
         {
             MakeMusic();
         }
+
+        private void fGame_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            WMP.Ctlcontrols.stop();
+        }
     }
 }

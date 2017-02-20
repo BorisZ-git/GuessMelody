@@ -110,7 +110,6 @@
             this.lblCounter1.Size = new System.Drawing.Size(31, 33);
             this.lblCounter1.TabIndex = 6;
             this.lblCounter1.Text = "0";
-            this.lblCounter1.Click += new System.EventHandler(this.label3_Click);
             // 
             // lblCounter2
             // 
@@ -139,6 +138,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fGame";
             this.Text = "Game";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fGame_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
