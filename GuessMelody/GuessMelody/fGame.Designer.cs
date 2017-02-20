@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fGame));
             this.WMP = new AxWMPLib.AxWindowsMediaPlayer();
             this.btnNext = new System.Windows.Forms.Button();
@@ -37,13 +38,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblCounter1 = new System.Windows.Forms.Label();
             this.lblCounter2 = new System.Windows.Forms.Label();
+            this.lblMusicCount = new System.Windows.Forms.Label();
+            this.labelRemain = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).BeginInit();
             this.SuspendLayout();
             // 
             // WMP
             // 
             this.WMP.Enabled = true;
-            this.WMP.Location = new System.Drawing.Point(0, 351);
+            this.WMP.Location = new System.Drawing.Point(-5, 360);
             this.WMP.Name = "WMP";
             this.WMP.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("WMP.OcxState")));
             this.WMP.Size = new System.Drawing.Size(143, 45);
@@ -53,7 +58,7 @@
             // btnNext
             // 
             this.btnNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnNext.Location = new System.Drawing.Point(12, 273);
+            this.btnNext.Location = new System.Drawing.Point(12, 305);
             this.btnNext.Name = "btnNext";
             this.btnNext.Size = new System.Drawing.Size(126, 49);
             this.btnNext.TabIndex = 1;
@@ -64,22 +69,24 @@
             // btnStop
             // 
             this.btnStop.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnStop.Location = new System.Drawing.Point(165, 273);
+            this.btnStop.Location = new System.Drawing.Point(173, 305);
             this.btnStop.Name = "btnStop";
-            this.btnStop.Size = new System.Drawing.Size(112, 49);
+            this.btnStop.Size = new System.Drawing.Size(120, 49);
             this.btnStop.TabIndex = 2;
             this.btnStop.Text = "Stop";
             this.btnStop.UseVisualStyleBackColor = true;
+            this.btnStop.Click += new System.EventHandler(this.btnStop_Click);
             // 
             // btnContinue
             // 
             this.btnContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnContinue.Location = new System.Drawing.Point(291, 273);
+            this.btnContinue.Location = new System.Drawing.Point(329, 305);
             this.btnContinue.Name = "btnContinue";
             this.btnContinue.Size = new System.Drawing.Size(124, 49);
             this.btnContinue.TabIndex = 3;
             this.btnContinue.Text = "Continue";
             this.btnContinue.UseVisualStyleBackColor = true;
+            this.btnContinue.Click += new System.EventHandler(this.btnContinue_Click);
             // 
             // label1
             // 
@@ -95,7 +102,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.Location = new System.Drawing.Point(249, 27);
+            this.label2.Location = new System.Drawing.Point(285, 27);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 33);
             this.label2.TabIndex = 5;
@@ -115,18 +122,53 @@
             // 
             this.lblCounter2.AutoSize = true;
             this.lblCounter2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lblCounter2.Location = new System.Drawing.Point(285, 82);
+            this.lblCounter2.Location = new System.Drawing.Point(323, 82);
             this.lblCounter2.Name = "lblCounter2";
             this.lblCounter2.Size = new System.Drawing.Size(31, 33);
             this.lblCounter2.TabIndex = 7;
             this.lblCounter2.Text = "0";
+            // 
+            // lblMusicCount
+            // 
+            this.lblMusicCount.AutoSize = true;
+            this.lblMusicCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblMusicCount.Location = new System.Drawing.Point(253, 191);
+            this.lblMusicCount.Name = "lblMusicCount";
+            this.lblMusicCount.Size = new System.Drawing.Size(26, 29);
+            this.lblMusicCount.TabIndex = 8;
+            this.lblMusicCount.Text = "0";
+            // 
+            // labelRemain
+            // 
+            this.labelRemain.AutoSize = true;
+            this.labelRemain.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.labelRemain.Location = new System.Drawing.Point(151, 191);
+            this.labelRemain.Name = "labelRemain";
+            this.labelRemain.Size = new System.Drawing.Size(96, 29);
+            this.labelRemain.TabIndex = 9;
+            this.labelRemain.Text = "Remain";
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(12, 262);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(441, 23);
+            this.progressBar1.TabIndex = 10;
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // fGame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(422, 371);
+            this.ClientSize = new System.Drawing.Size(474, 376);
+            this.Controls.Add(this.progressBar1);
+            this.Controls.Add(this.labelRemain);
+            this.Controls.Add(this.lblMusicCount);
             this.Controls.Add(this.lblCounter2);
             this.Controls.Add(this.lblCounter1);
             this.Controls.Add(this.label2);
@@ -139,6 +181,7 @@
             this.Name = "fGame";
             this.Text = "Game";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.fGame_FormClosed);
+            this.Load += new System.EventHandler(this.fGame_Load);
             ((System.ComponentModel.ISupportInitialize)(this.WMP)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -155,5 +198,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblCounter1;
         private System.Windows.Forms.Label lblCounter2;
+        private System.Windows.Forms.Label lblMusicCount;
+        private System.Windows.Forms.Label labelRemain;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Timer timer1;
     }
 }
