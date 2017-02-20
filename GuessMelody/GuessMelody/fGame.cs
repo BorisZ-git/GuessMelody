@@ -25,5 +25,10 @@ namespace GuessMelody
         {
             return random.Next(0, Victorina.list.Count);
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
