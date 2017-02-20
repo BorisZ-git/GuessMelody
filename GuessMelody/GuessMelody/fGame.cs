@@ -17,18 +17,16 @@ namespace GuessMelody
             InitializeComponent();
         }
         Random random = new Random();
+        void MakeMusic()
+        {
+            int rnd = random.Next(0, Victorina.list.Count);
+            WMP.URL = Victorina.list[rnd];
+            //WMP.Ctlcontrols.play();
+            Victorina.list.RemoveAt(rnd);
+        }
         private void btnNext_Click(object sender, EventArgs e)
         {
-            WMP.URL = Victorina.list[rnd()];
-        }
-        private int rnd()
-        {
-            return random.Next(0, Victorina.list.Count);
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
+            MakeMusic();
         }
     }
 }
