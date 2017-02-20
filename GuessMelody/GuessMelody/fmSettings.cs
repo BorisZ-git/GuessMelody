@@ -20,12 +20,20 @@ namespace GuessMelody
 
         private void btnOk_Click(object sender, EventArgs e)
         {
+            Victorina.GameDuration = Convert.ToInt32(cmbGameDuration.Text);
+            Victorina.MusicDuration = Convert.ToInt32(cmbMusicDuration.Text);
+            Victorina.AllDirectories = cbAllDirectory.Checked;
+            Victorina.RandomStart = cbRandomStart.Checked;
             Victorina.WriteSettings();
             this.Hide();
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
+            cmbGameDuration.Text = Victorina.GameDuration.ToString();
+            cmbMusicDuration.Text = Victorina.MusicDuration.ToString();
+            cbAllDirectory.Checked = Victorina.AllDirectories;
+            cbRandomStart.Checked = Victorina.RandomStart;
             this.Hide();
         }
 
