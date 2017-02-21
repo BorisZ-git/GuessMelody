@@ -17,13 +17,20 @@ namespace GuessMelody
             InitializeComponent();
         }
         Random random = new Random();
+        int MusicDuration = Victorina.MusicDuration;
         void MakeMusic()
         {
-            int rnd = random.Next(0, Victorina.list.Count);
-            WMP.URL = Victorina.list[rnd];
-            //WMP.Ctlcontrols.play();
-            Victorina.list.RemoveAt(rnd);
-            lblMusicCount.Text = Victorina.list.Count.ToString();
+            if (Victorina.list.Count == 0) EndGame();
+            else
+            {
+                int rnd = random.Next(0, Victorina.list.Count);
+                WMP.URL = Victorina.list[rnd];
+                //WMP.Ctlcontrols.play();
+                Victorina.list.RemoveAt(rnd);
+                lblMusicCount.Text = Victorina.list.Count.ToString();
+                MusicDuration = Victorina.MusicDuration;
+                lblMusicDuration.Text = MusicDuration.ToString();
+            }
         }
         private void btnNext_Click(object sender, EventArgs e)
         {
@@ -41,14 +48,22 @@ namespace GuessMelody
             progressBar1.Value = 0;
             progressBar1.Maximum = Victorina.GameDuration;
             lblMusicCount.Text = Victorina.list.Count.ToString();
+            lblMusicDuration.Text = MusicDuration.ToString();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             progressBar1.Value++;
+            MusicDuration--;
+            lblMusicDuration.Text = MusicDuration.ToString();
             if (progressBar1.Value == progressBar1.Maximum)
             {
-                timer1.Stop();
+                EndGame();
+                return;
+            }
+            if (MusicDuration == 0)
+            {
+                MakeMusic();
             }
         }
 
@@ -71,6 +86,11 @@ namespace GuessMelody
         {
             timer1.Stop();
             WMP.Ctlcontrols.pause();
+        }
+        void EndGame()
+        {
+            timer1.Stop();
+            WMP.Ctlcontrols.stop();
         }
         private void fGame_KeyDown(object sender, KeyEventArgs e)
         {
