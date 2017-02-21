@@ -36,11 +36,15 @@
             this.btnOk = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cbRandomStart = new System.Windows.Forms.CheckBox();
-            this.cmbGameDuration = new System.Windows.Forms.ComboBox();
             this.cmbMusicDuration = new System.Windows.Forms.ComboBox();
+            this.cmbGameDuration = new System.Windows.Forms.ComboBox();
+            this.cbRandomStart = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbPlayer1 = new System.Windows.Forms.ComboBox();
+            this.cmbPlayer2 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,6 +107,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbPlayer2);
+            this.groupBox1.Controls.Add(this.cmbPlayer1);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.cmbMusicDuration);
             this.groupBox1.Controls.Add(this.cmbGameDuration);
             this.groupBox1.Controls.Add(this.cbRandomStart);
@@ -114,48 +122,6 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Game Settings";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Game Duration";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 59);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Music Duration";
-            // 
-            // cbRandomStart
-            // 
-            this.cbRandomStart.AutoSize = true;
-            this.cbRandomStart.Location = new System.Drawing.Point(10, 103);
-            this.cbRandomStart.Name = "cbRandomStart";
-            this.cbRandomStart.Size = new System.Drawing.Size(72, 17);
-            this.cbRandomStart.TabIndex = 2;
-            this.cbRandomStart.Text = "Random?";
-            this.cbRandomStart.UseVisualStyleBackColor = true;
-            // 
-            // cmbGameDuration
-            // 
-            this.cmbGameDuration.FormattingEnabled = true;
-            this.cmbGameDuration.Items.AddRange(new object[] {
-            "30",
-            "60",
-            "90",
-            "120"});
-            this.cmbGameDuration.Location = new System.Drawing.Point(92, 29);
-            this.cmbGameDuration.Name = "cmbGameDuration";
-            this.cmbGameDuration.Size = new System.Drawing.Size(43, 21);
-            this.cmbGameDuration.TabIndex = 3;
-            this.cmbGameDuration.Text = "60";
             // 
             // cmbMusicDuration
             // 
@@ -172,6 +138,84 @@
             this.cmbMusicDuration.Size = new System.Drawing.Size(43, 21);
             this.cmbMusicDuration.TabIndex = 4;
             this.cmbMusicDuration.Text = "10";
+            // 
+            // cmbGameDuration
+            // 
+            this.cmbGameDuration.FormattingEnabled = true;
+            this.cmbGameDuration.Items.AddRange(new object[] {
+            "30",
+            "60",
+            "90",
+            "120"});
+            this.cmbGameDuration.Location = new System.Drawing.Point(92, 29);
+            this.cmbGameDuration.Name = "cmbGameDuration";
+            this.cmbGameDuration.Size = new System.Drawing.Size(43, 21);
+            this.cmbGameDuration.TabIndex = 3;
+            this.cmbGameDuration.Text = "60";
+            // 
+            // cbRandomStart
+            // 
+            this.cbRandomStart.AutoSize = true;
+            this.cbRandomStart.Location = new System.Drawing.Point(10, 103);
+            this.cbRandomStart.Name = "cbRandomStart";
+            this.cbRandomStart.Size = new System.Drawing.Size(72, 17);
+            this.cbRandomStart.TabIndex = 2;
+            this.cbRandomStart.Text = "Random?";
+            this.cbRandomStart.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 59);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(78, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Music Duration";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Game Duration";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(169, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Player 1";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(169, 59);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(45, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Player 2";
+            // 
+            // cmbPlayer1
+            // 
+            this.cmbPlayer1.FormattingEnabled = true;
+            this.cmbPlayer1.Location = new System.Drawing.Point(221, 32);
+            this.cmbPlayer1.Name = "cmbPlayer1";
+            this.cmbPlayer1.Size = new System.Drawing.Size(42, 21);
+            this.cmbPlayer1.TabIndex = 7;
+            this.cmbPlayer1.Text = "A";
+            // 
+            // cmbPlayer2
+            // 
+            this.cmbPlayer2.FormattingEnabled = true;
+            this.cmbPlayer2.Location = new System.Drawing.Point(221, 50);
+            this.cmbPlayer2.Name = "cmbPlayer2";
+            this.cmbPlayer2.Size = new System.Drawing.Size(42, 21);
+            this.cmbPlayer2.TabIndex = 8;
+            this.cmbPlayer2.Text = "P";
             // 
             // fmSettings
             // 
@@ -210,5 +254,9 @@
         private System.Windows.Forms.CheckBox cbRandomStart;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbPlayer2;
+        private System.Windows.Forms.ComboBox cmbPlayer1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }
