@@ -33,8 +33,7 @@ namespace GuessMelody
 
         private void fGame_FormClosed(object sender, FormClosedEventArgs e)
         {
-            timer1.Stop();
-            WMP.Ctlcontrols.stop();
+            GamePause();
         }
 
         private void fGame_Load(object sender, EventArgs e)
@@ -55,14 +54,47 @@ namespace GuessMelody
 
         private void btnStop_Click(object sender, EventArgs e)
         {
-            timer1.Stop();
-            WMP.Ctlcontrols.pause();
+            GamePause();
         }
 
         private void btnContinue_Click(object sender, EventArgs e)
         {
+            GameContinue();
+        }
+
+        void GameContinue()
+        {
             timer1.Start();
             WMP.Ctlcontrols.play();
+        }
+        void GamePause()
+        {
+            timer1.Stop();
+            WMP.Ctlcontrols.pause();
+        }
+        private void fGame_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.A)
+            {
+                GamePause();
+                if (MessageBox.Show("Answer is true?", "Player 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    lblCounter1.Text = Convert.ToString(Convert.ToInt32(lblCounter1.Text) + 1);
+                }
+                GameContinue();
+                MakeMusic();
+            }
+            if (e.KeyData == Keys.P)
+            {
+                GamePause();
+                if (MessageBox.Show("Answer is true?", "Player 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    lblCounter2.Text = Convert.ToString(Convert.ToInt32(lblCounter2.Text) + 1);
+                }
+                GameContinue();
+                MakeMusic();
+            }
+
         }
     }
 }
