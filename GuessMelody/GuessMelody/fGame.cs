@@ -18,6 +18,7 @@ namespace GuessMelody
         }
         Random random = new Random();
         int MusicDuration = Victorina.MusicDuration;
+        fMessage FGM = new fMessage();
         void MakeMusic()
         {
             if (Victorina.list.Count == 0) EndGame();
@@ -97,7 +98,8 @@ namespace GuessMelody
             if (e.KeyData == Keys.A)
             {
                 GamePause();
-                if (MessageBox.Show("Answer is true?", "Player 1", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FGM.lblName.Text = "Player 1";
+                if (FGM.ShowDialog() == DialogResult.Yes)
                 {
                     lblCounter1.Text = Convert.ToString(Convert.ToInt32(lblCounter1.Text) + 1);
                 }
@@ -107,7 +109,8 @@ namespace GuessMelody
             if (e.KeyData == Keys.P)
             {
                 GamePause();
-                if (MessageBox.Show("Answer is true?", "Player 2", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                FGM.lblName.Text = "Player 2";
+                if (FGM.ShowDialog() == DialogResult.Yes)
                 {
                     lblCounter2.Text = Convert.ToString(Convert.ToInt32(lblCounter2.Text) + 1);
                 }
