@@ -119,5 +119,16 @@ namespace GuessMelody
             }
 
         }
+
+        private void WMP_OpenStateChange(object sender, AxWMPLib._WMPOCXEvents_OpenStateChangeEvent e)
+        {
+            if (Victorina.RandomStart)
+            {
+                if (WMP.openState == WMPLib.WMPOpenState.wmposMediaOpen)
+                {
+                    WMP.Ctlcontrols.currentPosition = random.Next(0, (int)WMP.currentMedia.duration / 2);
+                }
+            }
+        }
     }
 }
