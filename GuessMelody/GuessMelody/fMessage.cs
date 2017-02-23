@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace GuessMelody
 {
@@ -25,6 +26,8 @@ namespace GuessMelody
             if (timeAnswer == 0)
             {
                 timer1.Stop();
+                SoundPlayer sp = new SoundPlayer("Properties\\TimeOut.wav");
+                sp.PlaySync();
             }
         }
 
