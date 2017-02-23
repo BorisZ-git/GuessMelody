@@ -96,10 +96,11 @@ namespace GuessMelody
         }
         private void fGame_KeyDown(object sender, KeyEventArgs e)
         {
+            if (!timer1.Enabled) return;
             SoundPlayer sp = new SoundPlayer("Properties\\Answer.wav");
-            sp.PlaySync();
             if (e.KeyData == Keys.A)
             {
+                sp.PlaySync();
                 GamePause();
                 FGM.lblName.Text = "Player 1";
                 if (FGM.ShowDialog() == DialogResult.Yes)
@@ -111,6 +112,7 @@ namespace GuessMelody
             }
             if (e.KeyData == Keys.P)
             {
+                sp.PlaySync();
                 GamePause();
                 FGM.lblName.Text = "Player 2";
                 if (FGM.ShowDialog() == DialogResult.Yes)
