@@ -20,6 +20,8 @@ namespace GuessMelody
         Random random = new Random();
         int MusicDuration = Victorina.MusicDuration;
         fMessage FGM = new fMessage();
+        bool[] players = new bool[2];
+
         void MakeMusic()
         {
             if (Victorina.list.Count == 0) EndGame();
@@ -32,6 +34,8 @@ namespace GuessMelody
                 lblMusicCount.Text = Victorina.list.Count.ToString();
                 MusicDuration = Victorina.MusicDuration;
                 lblMusicDuration.Text = MusicDuration.ToString();
+                players[0] = false;
+                players[1] = false;
             }
         }
         private void btnNext_Click(object sender, EventArgs e)
@@ -98,29 +102,31 @@ namespace GuessMelody
         {
             if (!timer1.Enabled) return;
             SoundPlayer sp = new SoundPlayer("Properties\\Answer.wav");
-            if (e.KeyData == Keys.A)
+            if (players[0] == false && e.KeyData == Keys.A)
             {
                 sp.PlaySync();
                 GamePause();
                 FGM.lblName.Text = "Player 1";
+                players[0] = true;
                 if (FGM.ShowDialog() == DialogResult.Yes)
                 {
                     lblCounter1.Text = Convert.ToString(Convert.ToInt32(lblCounter1.Text) + 1);
-                }
-                GameContinue();
-                MakeMusic();
+                    MakeMusic();
+                } 
+                else GameContinue();
             }
-            if (e.KeyData == Keys.P)
+            if (players[1] == false && e.KeyData == Keys.P)
             {
+                players[1] = true;
                 sp.PlaySync();
                 GamePause();
                 FGM.lblName.Text = "Player 2";
                 if (FGM.ShowDialog() == DialogResult.Yes)
                 {
                     lblCounter2.Text = Convert.ToString(Convert.ToInt32(lblCounter2.Text) + 1);
+                    MakeMusic();
                 }
-                GameContinue();
-                MakeMusic();
+                else GameContinue();
             }
 
         }
