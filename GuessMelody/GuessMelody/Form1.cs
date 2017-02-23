@@ -38,8 +38,16 @@ namespace GuessMelody
 
         private void FmMain_Load(object sender, EventArgs e)
         {
-            Victorina.ReadSettings();
-            Victorina.ReadMusic();
+            try
+            {
+                Victorina.ReadSettings();
+                Victorina.ReadMusic();
+            }
+            catch
+            {
+                MessageBox.Show("Something is wrong.Maybe you not set all settings." +
+                    "Before play, go to settings and check all property.");
+            }
         }
     }
 }

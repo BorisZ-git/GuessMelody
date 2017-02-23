@@ -16,6 +16,7 @@ namespace GuessMelody
         static public bool RandomStart = false;
         static public string LastFolder = "";
         static public bool AllDirectories = false;
+        static public int timeAnswer = 10;
 
         static public void ReadMusic()
         {
@@ -45,6 +46,7 @@ namespace GuessMelody
                 rKey.SetValue("RandomStart", RandomStart);
                 rKey.SetValue("LastFolder", LastFolder);
                 rKey.SetValue("AllDirectories", AllDirectories);
+                rKey.SetValue("TimeAnswer", timeAnswer);
             }
             finally
             {
@@ -64,6 +66,7 @@ namespace GuessMelody
                     RandomStart =Convert.ToBoolean(rKey.GetValue("RandomStart"));
                     LastFolder =(string)rKey.GetValue("LastFolder");
                     AllDirectories = Convert.ToBoolean(rKey.GetValue("AllDirectories"));
+                    timeAnswer = (int)rKey.GetValue("TimeAnswer");
                 }
             }
             finally

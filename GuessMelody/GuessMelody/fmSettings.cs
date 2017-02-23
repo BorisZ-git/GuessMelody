@@ -24,6 +24,7 @@ namespace GuessMelody
             Victorina.MusicDuration = Convert.ToInt32(cmbMusicDuration.Text);
             Victorina.AllDirectories = cbAllDirectory.Checked;
             Victorina.RandomStart = cbRandomStart.Checked;
+            Victorina.timeAnswer = Convert.ToInt32(cmbTimeAnswer.Text);
             Victorina.WriteSettings();
             this.Hide();
         }
@@ -54,6 +55,7 @@ namespace GuessMelody
             cmbMusicDuration.Text = Victorina.MusicDuration.ToString();
             cbAllDirectory.Checked = Victorina.AllDirectories;
             cbRandomStart.Checked = Victorina.RandomStart;
+            cmbTimeAnswer.Text = Victorina.timeAnswer.ToString();                        
         }
 
         private void fmSettings_Load(object sender, EventArgs e)
