@@ -38,5 +38,9 @@ namespace GuessMelody
             timer1.Start();            
         }
 
+        private void fMessage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timer1.Stop();
+        }
     }
 }

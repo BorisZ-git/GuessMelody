@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace GuessMelody
 {
@@ -95,6 +96,8 @@ namespace GuessMelody
         }
         private void fGame_KeyDown(object sender, KeyEventArgs e)
         {
+            SoundPlayer sp = new SoundPlayer("Properties\\Answer.wav");
+            sp.PlaySync();
             if (e.KeyData == Keys.A)
             {
                 GamePause();
