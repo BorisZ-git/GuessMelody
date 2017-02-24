@@ -41,6 +41,15 @@ namespace GuessMelody
         private void fMessage_FormClosed(object sender, FormClosedEventArgs e)
         {
             timer1.Stop();
+            lblShowAnswer.Text = "Show right answer";
+        }
+
+        private void lblShowAnswer_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Clicks > 0)
+            {
+                lblShowAnswer.Text = Victorina.Answer;
+            }
         }
     }
 }

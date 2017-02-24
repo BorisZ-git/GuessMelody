@@ -21,7 +21,6 @@ namespace GuessMelody
         int MusicDuration = Victorina.MusicDuration;
         fMessage FGM = new fMessage();
         bool[] players = new bool[2];
-
         void MakeMusic()
         {
             if (Victorina.list.Count == 0) EndGame();
@@ -36,6 +35,7 @@ namespace GuessMelody
                 lblMusicDuration.Text = MusicDuration.ToString();
                 players[0] = false;
                 players[1] = false;
+                Victorina.Answer = WMP.currentMedia.name;
             }
         }
         private void btnNext_Click(object sender, EventArgs e)

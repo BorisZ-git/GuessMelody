@@ -36,6 +36,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.lblTimeAnswer = new System.Windows.Forms.Label();
+            this.lblShowAnswer = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -95,12 +96,24 @@
             this.lblTimeAnswer.TabIndex = 4;
             this.lblTimeAnswer.Text = "0";
             // 
+            // lblShowAnswer
+            // 
+            this.lblShowAnswer.AutoSize = true;
+            this.lblShowAnswer.Font = new System.Drawing.Font("Monotype Corsiva", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblShowAnswer.Location = new System.Drawing.Point(83, 88);
+            this.lblShowAnswer.Name = "lblShowAnswer";
+            this.lblShowAnswer.Size = new System.Drawing.Size(138, 22);
+            this.lblShowAnswer.TabIndex = 5;
+            this.lblShowAnswer.Text = "Show right answer";
+            this.lblShowAnswer.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lblShowAnswer_MouseClick);
+            // 
             // fMessage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(301, 304);
+            this.Controls.Add(this.lblShowAnswer);
             this.Controls.Add(this.lblTimeAnswer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblName);
@@ -123,5 +136,6 @@
         public System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Label lblTimeAnswer;
+        private System.Windows.Forms.Label lblShowAnswer;
     }
 }
