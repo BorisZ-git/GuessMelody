@@ -35,7 +35,7 @@ namespace GuessMelody
                 lblMusicDuration.Text = MusicDuration.ToString();
                 players[0] = false;
                 players[1] = false;
-                Victorina.Answer = WMP.currentMedia.name;
+                Victorina.Answer = WMP.URL;
             }
         }
         private void btnNext_Click(object sender, EventArgs e)

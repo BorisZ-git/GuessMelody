@@ -48,7 +48,8 @@ namespace GuessMelody
         {
             if (e.Clicks > 0)
             {
-                lblShowAnswer.Text = Victorina.Answer;
+                var mp3file = TagLib.File.Create(Victorina.Answer);
+                lblShowAnswer.Text = mp3file.Tag.FirstAlbumArtist + " " + mp3file.Tag.Title;
             }
         }
     }

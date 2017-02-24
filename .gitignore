@@ -241,3 +241,4 @@ ModelManifest.xml
 # FAKE - F# Make
 .fake/
 /Pictures/
+/taglib-sharp-2.1.0.0-windows/
