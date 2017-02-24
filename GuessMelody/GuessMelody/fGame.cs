@@ -141,5 +141,20 @@ namespace GuessMelody
                 }
             }
         }
+
+        private void lblCounter1_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                (sender as Label).Text = Convert.ToString
+                    (Convert.ToInt32((sender as Label).Text) + 1);
+            }
+            if (e.Button == MouseButtons.Right)
+            {
+                (sender as Label).Text = Convert.ToString
+                    (Convert.ToInt32((sender as Label).Text) - 1);
+            }
+
+        }
     }
 }
